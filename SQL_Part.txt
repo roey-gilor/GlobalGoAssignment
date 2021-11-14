@@ -1,0 +1,4 @@
+select Accounts.Bank_id, Accounts.Branch_Id, Accounts.Account_Num, Accounts.Currency, Amounts.Amount from Accounts inner join Amounts on Amounts.Account_Rec in
+(select (select CAST(Bank_id as varchar(50)))+ ' ' + (select CAST(Branch_Id as varchar(50))) 
++ ' ' + (select CAST(Account_Num as varchar(50))) 
+from Accounts)
